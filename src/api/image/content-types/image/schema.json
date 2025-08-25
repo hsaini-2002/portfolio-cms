@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "images",
+  "info": {
+    "singularName": "image",
+    "pluralName": "images",
+    "displayName": "Image"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "slug": {
+      "type": "uid"
+    },
+    "brand": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}

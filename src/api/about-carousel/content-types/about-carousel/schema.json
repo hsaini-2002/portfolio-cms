@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "about_carousels",
+  "info": {
+    "singularName": "about-carousel",
+    "pluralName": "about-carousels",
+    "displayName": "About Carousel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "order": {
+      "type": "integer"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

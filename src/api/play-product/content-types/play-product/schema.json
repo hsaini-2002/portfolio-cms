@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "play_products",
+  "info": {
+    "singularName": "play-product",
+    "pluralName": "play-products",
+    "displayName": "Play Product"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "isLaunching": {
+      "type": "boolean"
+    }
+  }
+}

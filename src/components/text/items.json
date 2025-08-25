@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_text_items",
+  "info": {
+    "displayName": "items"
+  },
+  "options": {},
+  "attributes": {
+    "line1": {
+      "type": "string"
+    },
+    "line2": {
+      "type": "string"
+    },
+    "line3": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

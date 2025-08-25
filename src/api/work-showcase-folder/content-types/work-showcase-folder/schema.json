@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "work_showcase_folders",
+  "info": {
+    "singularName": "work-showcase-folder",
+    "pluralName": "work-showcase-folders",
+    "displayName": "WorkShowcaseFolder"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "folderId": {
+      "type": "integer"
+    },
+    "items": {
+      "type": "component",
+      "component": "text.items",
+      "repeatable": true
+    },
+    "cardImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
