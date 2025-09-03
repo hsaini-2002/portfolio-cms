@@ -1,21 +1,17 @@
 {
-  "kind": "collectionType",
-  "collectionName": "about_carousels",
+  "kind": "singleType",
+  "collectionName": "showreels",
   "info": {
-    "singularName": "about-carousel",
-    "pluralName": "about-carousels",
-    "displayName": "About Carousel"
+    "singularName": "showreel",
+    "pluralName": "showreels",
+    "displayName": "Homepage Showreel"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "order": {
-      "type": "integer",
-      "unique": true
-    },
-    "image": {
+    "Video": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [

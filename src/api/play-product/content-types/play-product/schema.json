@@ -26,6 +26,9 @@
     },
     "isLaunching": {
       "type": "boolean"
+    },
+    "Product_Link": {
+      "type": "string"
     }
   }
 }

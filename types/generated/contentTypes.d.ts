@@ -432,7 +432,7 @@ export interface ApiAboutCarouselAboutCarousel
       'api::about-carousel.about-carousel'
     > &
       Schema.Attribute.Private;
-    order: Schema.Attribute.Integer;
+    order: Schema.Attribute.Integer & Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -461,7 +461,7 @@ export interface ApiAboutImageAboutImage extends Struct.CollectionTypeSchema {
       'api::about-image.about-image'
     > &
       Schema.Attribute.Private;
-    order: Schema.Attribute.Integer;
+    order: Schema.Attribute.Integer & Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -469,39 +469,31 @@ export interface ApiAboutImageAboutImage extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
-  collectionName: 'blog_posts';
+export interface ApiAboutPagePortraitAboutPagePortrait
+  extends Struct.SingleTypeSchema {
+  collectionName: 'about_page_portraits';
   info: {
-    displayName: 'Blog Post';
-    pluralName: 'blog-posts';
-    singularName: 'blog-post';
+    displayName: 'About Page Portrait';
+    pluralName: 'about-page-portraits';
+    singularName: 'about-page-portrait';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    author: Schema.Attribute.String;
-    body: Schema.Attribute.Blocks;
-    coverImage: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::blog-post.blog-post'
+      'api::about-page-portrait.about-page-portrait'
     > &
       Schema.Attribute.Private;
-    metaDescription: Schema.Attribute.String;
-    metaTitle: Schema.Attribute.String;
-    name: Schema.Attribute.String;
-    ogImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    oneLiner: Schema.Attribute.String;
+    Portrait_Image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     publishedAt: Schema.Attribute.DateTime;
-    publishedAtt: Schema.Attribute.Date;
-    slug: Schema.Attribute.UID;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -512,7 +504,7 @@ export interface ApiFeaturedProjectFeaturedProject
   extends Struct.CollectionTypeSchema {
   collectionName: 'featured_projects';
   info: {
-    displayName: 'Featured Project';
+    displayName: 'Homepage Featured Project';
     pluralName: 'featured-projects';
     singularName: 'featured-project';
   };
@@ -540,7 +532,7 @@ export interface ApiFeaturedProjectFeaturedProject
     order: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
     services: Schema.Attribute.String;
-    slug: Schema.Attribute.UID;
+    slug: Schema.Attribute.UID<'name'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -550,7 +542,7 @@ export interface ApiFeaturedProjectFeaturedProject
 export interface ApiImageImage extends Struct.CollectionTypeSchema {
   collectionName: 'images';
   info: {
-    displayName: 'Image';
+    displayName: 'Homepage Brand Images';
     pluralName: 'images';
     singularName: 'image';
   };
@@ -565,9 +557,39 @@ export interface ApiImageImage extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::image.image'> &
       Schema.Attribute.Private;
-    order: Schema.Attribute.Integer;
+    order: Schema.Attribute.Integer & Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiInstagramFeedInstagramFeed
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'instagram_feeds';
+  info: {
+    displayName: 'Homepage Instagram Feed';
+    pluralName: 'instagram-feeds';
+    singularName: 'instagram-feed';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::instagram-feed.instagram-feed'
+    > &
+      Schema.Attribute.Private;
+    orderNo: Schema.Attribute.Integer & Schema.Attribute.Unique;
+    Post: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -665,6 +687,7 @@ export interface ApiPlayProductPlayProduct extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
+    Product_Link: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -705,7 +728,7 @@ export interface ApiProjectDetailProjectDetail
     outcome: Schema.Attribute.Blocks;
     publishedAt: Schema.Attribute.DateTime;
     services: Schema.Attribute.Enumeration<['Branding', 'Packaging', 'UI/UX']>;
-    slug: Schema.Attribute.UID;
+    slug: Schema.Attribute.UID<'name'>;
     solution: Schema.Attribute.Blocks;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -716,7 +739,7 @@ export interface ApiProjectDetailProjectDetail
 export interface ApiProjectProject extends Struct.CollectionTypeSchema {
   collectionName: 'projects';
   info: {
-    displayName: 'Project';
+    displayName: 'Project Lisiting';
     pluralName: 'projects';
     singularName: 'project';
   };
@@ -738,7 +761,7 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
     oneLiner: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     size: Schema.Attribute.String;
-    slug: Schema.Attribute.UID;
+    slug: Schema.Attribute.UID<'name'>;
     tags: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -746,10 +769,38 @@ export interface ApiProjectProject extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiShowreelShowreel extends Struct.SingleTypeSchema {
+  collectionName: 'showreels';
+  info: {
+    displayName: 'Homepage Showreel';
+    pluralName: 'showreels';
+    singularName: 'showreel';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::showreel.showreel'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Video: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
   collectionName: 'testimonials';
   info: {
-    displayName: 'Testimonial';
+    displayName: 'Homepage Testimonial';
     pluralName: 'testimonials';
     singularName: 'testimonial';
   };
@@ -781,7 +832,7 @@ export interface ApiWorkShowcaseFolderWorkShowcaseFolder
   extends Struct.CollectionTypeSchema {
   collectionName: 'work_showcase_folders';
   info: {
-    displayName: 'WorkShowcaseFolder';
+    displayName: 'About WorkShowcaseFolder';
     pluralName: 'work-showcase-folders';
     singularName: 'work-showcase-folder';
   };
@@ -1320,14 +1371,16 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::about-carousel.about-carousel': ApiAboutCarouselAboutCarousel;
       'api::about-image.about-image': ApiAboutImageAboutImage;
-      'api::blog-post.blog-post': ApiBlogPostBlogPost;
+      'api::about-page-portrait.about-page-portrait': ApiAboutPagePortraitAboutPagePortrait;
       'api::featured-project.featured-project': ApiFeaturedProjectFeaturedProject;
       'api::image.image': ApiImageImage;
+      'api::instagram-feed.instagram-feed': ApiInstagramFeedInstagramFeed;
       'api::journal.journal': ApiJournalJournal;
       'api::play-hero.play-hero': ApiPlayHeroPlayHero;
       'api::play-product.play-product': ApiPlayProductPlayProduct;
       'api::project-detail.project-detail': ApiProjectDetailProjectDetail;
       'api::project.project': ApiProjectProject;
+      'api::showreel.showreel': ApiShowreelShowreel;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::work-showcase-folder.work-showcase-folder': ApiWorkShowcaseFolderWorkShowcaseFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;

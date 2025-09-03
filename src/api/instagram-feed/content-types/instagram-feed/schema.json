@@ -1,21 +1,21 @@
 {
   "kind": "collectionType",
-  "collectionName": "about_carousels",
+  "collectionName": "instagram_feeds",
   "info": {
-    "singularName": "about-carousel",
-    "pluralName": "about-carousels",
-    "displayName": "About Carousel"
+    "singularName": "instagram-feed",
+    "pluralName": "instagram-feeds",
+    "displayName": "Homepage Instagram Feed"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "order": {
+    "orderNo": {
       "type": "integer",
       "unique": true
     },
-    "image": {
+    "Post": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [

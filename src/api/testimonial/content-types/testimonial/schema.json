@@ -4,7 +4,7 @@
   "info": {
     "singularName": "testimonial",
     "pluralName": "testimonials",
-    "displayName": "Testimonial"
+    "displayName": "Homepage Testimonial"
   },
   "options": {
     "draftAndPublish": true
@@ -21,7 +21,8 @@
       "type": "blocks"
     },
     "number": {
-      "type": "integer"
+      "type": "integer",
+      "unique": false
     }
   }
 }

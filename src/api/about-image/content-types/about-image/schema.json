@@ -12,7 +12,8 @@
   "pluginOptions": {},
   "attributes": {
     "order": {
-      "type": "integer"
+      "type": "integer",
+      "unique": true
     },
     "image": {
       "type": "media",

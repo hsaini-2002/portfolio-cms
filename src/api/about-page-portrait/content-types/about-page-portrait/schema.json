@@ -1,21 +1,17 @@
 {
-  "kind": "collectionType",
-  "collectionName": "about_carousels",
+  "kind": "singleType",
+  "collectionName": "about_page_portraits",
   "info": {
-    "singularName": "about-carousel",
-    "pluralName": "about-carousels",
-    "displayName": "About Carousel"
+    "singularName": "about-page-portrait",
+    "pluralName": "about-page-portraits",
+    "displayName": "About Page Portrait"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "order": {
-      "type": "integer",
-      "unique": true
-    },
-    "image": {
+    "Portrait_Image": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [

@@ -4,7 +4,7 @@
   "info": {
     "singularName": "image",
     "pluralName": "images",
-    "displayName": "Image"
+    "displayName": "Homepage Brand Images"
   },
   "options": {
     "draftAndPublish": true
@@ -25,7 +25,8 @@
       ]
     },
     "order": {
-      "type": "integer"
+      "type": "integer",
+      "unique": true
     }
   }
 }

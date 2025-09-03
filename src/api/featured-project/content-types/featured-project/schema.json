@@ -4,7 +4,7 @@
   "info": {
     "singularName": "featured-project",
     "pluralName": "featured-projects",
-    "displayName": "Featured Project"
+    "displayName": "Homepage Featured Project"
   },
   "options": {
     "draftAndPublish": true
@@ -12,7 +12,8 @@
   "pluginOptions": {},
   "attributes": {
     "slug": {
-      "type": "uid"
+      "type": "uid",
+      "targetField": "name"
     },
     "name": {
       "type": "string"
