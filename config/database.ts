@@ -66,32 +66,32 @@
 
 
 /* This is for production */
-// export default ({ env }) => ({
-//   connection: {
-//     client: 'postgres',
-//     connection: {
-//       host: env('DATABASE_HOST', 'localhost'),
-//       port: env.int('DATABASE_PORT', 5432),
-//       database: env('DATABASE_NAME'),
-//       user: env('DATABASE_USERNAME'),
-//       password: env('DATABASE_PASSWORD'),
-//       ssl: env.bool('DATABASE_SSL', true)? {
-//         rejectUnauthorized: false,
-//       } : false,
-//     },
-//   },
-// });
+export default ({ env }) => ({
+  connection: {
+    client: 'postgres',
+    connection: {
+      host: env('DATABASE_HOST', 'localhost'),
+      port: env.int('DATABASE_PORT', 5432),
+      database: env('DATABASE_NAME'),
+      user: env('DATABASE_USERNAME'),
+      password: env('DATABASE_PASSWORD'),
+      ssl: env.bool('DATABASE_SSL', true)? {
+        rejectUnauthorized: false,
+      } : false,
+    },
+  },
+});
 /* This is for production */
 
 
 // config/database.ts or config/database.js
-module.exports = ({ env }) => ({
-  connection: {
-    client: 'sqlite',
-    connection: {
-      filename: env('DATABASE_FILENAME', '.tmp/data.db'),
-    },
-    useNullAsDefault: true,
-  },
-});
+// module.exports = ({ env }) => ({
+//   connection: {
+//     client: 'sqlite',
+//     connection: {
+//       filename: env('DATABASE_FILENAME', '.tmp/data.db'),
+//     },
+//     useNullAsDefault: true,
+//   },
+// });
 
