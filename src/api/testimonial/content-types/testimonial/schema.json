@@ -22,7 +22,7 @@
     },
     "number": {
       "type": "integer",
-      "unique": false
+      "unique": true
     }
   }
 }

@@ -819,7 +819,7 @@ export interface ApiTestimonialTestimonial extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String;
-    number: Schema.Attribute.Integer;
+    number: Schema.Attribute.Integer & Schema.Attribute.Unique;
     publishedAt: Schema.Attribute.DateTime;
     quote: Schema.Attribute.Blocks;
     updatedAt: Schema.Attribute.DateTime;
